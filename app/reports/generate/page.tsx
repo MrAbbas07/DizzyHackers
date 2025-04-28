@@ -102,11 +102,10 @@ export default function GenerateReport() {
 
     const doc = new jsPDF()
 
-    // Add header
     doc.setFontSize(20)
     doc.text("Emergency Incident Report", 105, 15, { align: "center" })
 
-    // Add incident details
+   
     doc.setFontSize(12)
     doc.text(`Incident ID: ${incident.id}`, 20, 30)
     doc.text(`Type: ${incident.type}`, 20, 40)
@@ -115,16 +114,15 @@ export default function GenerateReport() {
     doc.text(`Priority: ${incident.priority}`, 20, 70)
     doc.text(`Status: ${incident.status}`, 20, 80)
 
-    // Add description
+     
     doc.setFontSize(14)
     doc.text("Description", 20, 95)
     doc.setFontSize(12)
 
-    // Handle long text wrapping
+     
     const splitDescription = doc.splitTextToSize(incident.description, 170)
     doc.text(splitDescription, 20, 105)
 
-    // Add responding units
     let yPos = 105 + splitDescription.length * 7
 
     doc.setFontSize(14)
@@ -137,8 +135,7 @@ export default function GenerateReport() {
       yPos += 7
     })
 
-    // Add actions taken
-    yPos += 5
+   yPos += 5
     doc.setFontSize(14)
     doc.text("Actions Taken", 20, yPos)
     doc.setFontSize(12)
@@ -149,7 +146,6 @@ export default function GenerateReport() {
       yPos += 7
     })
 
-    // Add additional information based on incident type
     yPos += 5
     doc.setFontSize(14)
     doc.text("Additional Information", 20, yPos)
@@ -185,7 +181,6 @@ export default function GenerateReport() {
       yPos += 7
     }
 
-    // Add additional notes
     if (additionalNotes) {
       yPos += 5
       doc.setFontSize(14)
@@ -198,7 +193,6 @@ export default function GenerateReport() {
       yPos += splitNotes.length * 7
     }
 
-    // Add reporting officer information
     yPos += 10
     doc.text(`Reporting Officer: ${reportingOfficer || "Not specified"}`, 20, yPos)
     yPos += 7

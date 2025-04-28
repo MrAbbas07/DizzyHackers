@@ -9,14 +9,14 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Highway Emergency Response System",
   description: "Coordinating emergency services efficiently",
-    generator: 'v0.dev'
+   
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
-        {/* Add Leaflet CSS */}
+       
         <link
           rel="stylesheet"
           href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
